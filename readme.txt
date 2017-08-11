@@ -4,7 +4,7 @@ Donate link: https://github.com/kendysond
 Tags: Selar,Selar.co, payments, e-commerce, commerce, digital payments,recurrent payments, nigeria, mastercard, visa, target,Naira,payments,verve
 Requires at least: 3.1
 Tested up to: 4.8
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,8 +12,7 @@ Embed Selar products or profiles to your website.
 
 == Description ==
 
-This setups a beatiful widget for a selar product or merchant profile.
-
+This sets up a beautiful widget for a Selar product or merchant profile.
 
 = Suggestions / Feature Request =
 
@@ -49,6 +48,8 @@ You can also follow us on Twitter! **[@tryselar](http://twitter.com/tryselar)**
 
 
 == Changelog ==
+= 1.1 =
+*   Added color picker to alternative widget background color.
 = 1.0 =
 *   First release
 
