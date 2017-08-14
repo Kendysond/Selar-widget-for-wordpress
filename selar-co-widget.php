@@ -4,7 +4,7 @@ Plugin Name: Selar.co Widget
 Plugin URI: https://selar.co/plugins
 Description: Embed a Selar product/profile on your website.
 Author: Kendysond
-Version: 1.1
+Version: 1.2
 Author URI: http://kendyson.com
 */
 
@@ -78,3 +78,34 @@ function kkd_selar_register_widget() {
   register_widget( 'KKD_Selar_Product_Widget' );
 }
 add_action( 'widgets_init', 'kkd_selar_register_widget' );
+
+function kkd_pff_selar_shortcode($atts) {
+    	ob_start();
+		extract(shortcode_atts(array(
+	      'product_code' => 0,
+	      'bg_color' => 'FFFFFF',
+	      'affiliate_code' => null,
+
+	   ), $atts));
+?>
+	<script  src="<?php echo KDD_SELAR_WIDGET_ENDPOINT; ?>widget/widget.min.js"  bg-color="<?php echo $bg_color; ?>" product-code="<?php echo $product_code; ?>" affiliate-code="<?php echo $affiliate_code; ?>" data-type="product"></script>
+   <?php 
+    return ob_get_clean();
+}
+
+add_shortcode( 'selar', 'kkd_pff_selar_shortcode' );
+
+
+function add_pre_and_div_quicktags() {
+if (wp_script_is('quicktags')){
+?>
+<script type="text/javascript">
+QTags.addButton( 'selar_widget', 'Selar Embed', '[selar product_code="" bg_color="FFFFFF" affiliate_code=""]', '', '', 'Selar Widget', 0 );
+
+</script>
+<?php
+}
+}
+add_action( 'admin_print_footer_scripts', 'add_pre_and_div_quicktags' );
+
+
